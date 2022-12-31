@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main id="to-do-list-container">
+      <div class="pop-up" id="popUp">Please create your task first!</div>
+      <!-- <h1 class="heading">Your Task</h1> -->
+      <div class="task-input-container" id="taskInputContainer">
+        <input
+          type="text"
+          name="input-task"
+          id="inputTask"
+          placeholder="Create new task today"
+        />
+        <button class="add-task-btn" id="addTaskBtn">Add Task</button>
+      </div>
+      <div id="taskList"></div>
+    </main>
+  </body>
+</html>

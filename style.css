@@ -1,0 +1,178 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: 'Montserrat', 'Lucida Sans', 'Lucida Sans Regular',
+    'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --light: #feffff;
+  --dark: #161615;
+  --dark-blue: #12006c;
+  --desaturated-blue: #424cf9;
+  --box-shadow: 0 0 20px 10px hsla(250, 100%, 21%, 0.424);
+}
+
+button {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  padding: 0.3rem 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(/magicpattern-KfFmwa7m5VQ-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+body::before {
+  content: 'TO DO LIST';
+  display: flex;
+  justify-content: center;
+  padding-block-start: 8rem;
+  color: var(--light);
+  font-size: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(var(--desaturated-blue), transparent);
+}
+
+#to-do-list-container {
+  position: relative;
+  /* top: -400px; */
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.4rem;
+  backdrop-filter: blur(20px);
+  box-shadow: var(--box-shadow);
+  /* animation: slideDown 0.6s ease-in-out forwards; */
+}
+
+/* @keyframes slideDown {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    transform: translateY(410px);
+  }
+  100% {
+    transform: translateY(400px);
+  }
+} */
+
+.pop-up {
+  content: 'Please create your task first!';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  padding: 0.5rem;
+  color: var(--light);
+  font-size: 1rem;
+  background-color: var(--desaturated-blue);
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  display: none;
+  transition: 0.5s ease-in-out;
+  animation: slideUp 0.5s forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2.8rem);
+  }
+  100% {
+    transform: translateY(-2.5rem);
+  }
+}
+
+.pop-up.active {
+  display: block;
+}
+
+.task-input-container {
+  display: flex;
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+.task-input-container input[type='text'] {
+  width: 22rem;
+  padding: 0.5rem;
+  padding-inline-start: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--dark-blue);
+  border: 0;
+  outline: 0;
+  background-color: var(--light);
+}
+
+.task-input-container input[type='text']::placeholder {
+  color: var(--desaturated-blue);
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.task-input-container .add-task-btn {
+  background-color: var(--dark-blue);
+  color: var(--light);
+}
+
+#taskList {
+  background: linear-gradient(15deg, var(--dark-blue) 25%, transparent);
+  margin-block-start: 0.5rem;
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+#taskList .task {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem;
+}
+
+.task > p {
+  color: var(--light);
+  text-transform: capitalize;
+  width: 100%;
+  cursor: default;
+}
+
+.task > p.active {
+  text-decoration: line-through;
+  color: var(--desaturated-blue);
+}
+
+.task > p::before {
+  content: '• ';
+}
+
+.task .delete-task {
+  justify-self: flex-end;
+  align-self: flex-end;
+  background-color: var(--desaturated-blue);
+  border-radius: 0.5rem;
+  color: aliceblue;
+  letter-spacing: 1px;
+}
